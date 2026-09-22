@@ -2,59 +2,47 @@
 
 ## Контекст
 
-Большая аутсорс / project-delivery компания. Юнит ~150 инженеров (в жизни до 200): delivery + практики (platform, mobile, QA, data).
+Большая аутсорс / project-delivery компания. Юнит ~150 инженеров (в жизни до 200).
 
-Клиенты на аккаунтах. Ключевой риск — уход Delivery/Engineering Partner: клиент, маржа, бенч.
+Succession только на критические роли, которые создаёт Unit Head.
 
-Это не «кадровый резерв на всех». Succession только на критические роли, которые создаёт Unit Head.
-
-Как работать с каждым экраном, включая схему 9-box (звезда / алмаз / эксперт) и калибровку HR — в [docs/UI.md](UI.md).
+Экраны: [UI.md](UI.md). Демо 8 мин и актёры: [DEMO.md](DEMO.md).
 
 ## Пользователи
 
 | Роль | Что делает |
 |---|---|
-| Unit Head | Создаёт роли, incumbent, planned, цели, горизонт |
-| HRBP | Калибрует 9-box (драг + коммент), флаг ассессмента. Не ставит primary |
-| Observer | Руководитель Unit Head. Только смотрит покрытие и дыры |
-| Кандидат | v1 не логинится |
+| Unit Head | Роли, planned, цели, горизонт |
+| HRBP | 9-box + коммент. Не ставит primary |
+| Observer | Только покрытие и дыры |
+| Кандидат | v1 не логинится, slate не видит |
 
-## Фреймворки в продукте
+В прототипе — переключатель трёх ролей в шапке, не настоящий логин.
 
-1. **Critical roles, не org chart.**
-2. **Slates, не один наследник.**
-3. **Горизонты:** `ready_now` / `6m` / `12m` / `18m`.
-4. **9-box:** performance × potential. Звезда и алмаз — вход в slate; эксперт — не partner «из уважения». Калибрует HR. Подробности — [UI.md](UI.md#экран-2a-9-box--как-читать-и-калибровать).
-5. **Leadership pipeline** (упрощённо): IC → stream lead → team/tech lead → account lead → partner.
-6. **Evidence-based readiness.** Горизонт только вручную после целей + комментария.
-7. **Talent pool + поиск по 150.**
-8. **Каденция.** Квартал — цели; review — калибровка 9-box.
+## Правила, которые легко упустить
 
-## Флоу v1
+1. **Тула не назначает.** Статус роли: `open | ready_to_fill | filled_outside`.
+2. **Emergency ≠ successor.** Cover — завтра. Planned — рост в роль.
+3. **Slate конфиденциален.** Кандидат не видит, что он в списке.
+4. **Recommended с why-строкой.** Не один score.
+5. **Один primary на двух ролях** — флаг «bench горит».
+6. **Каденция в шапке:** last review / next review.
+7. **9-box ≠ готовность.** Клетка = в кого вкладываться. Горизонт = цели.
 
-1. Unit Head создаёт роль → incumbent → planned.
-2. Система показывает recommended.
-3. HRBP калибрует 9-box.
-4. Вместе собирают slate и цели.
-5. Раз в квартал отмечают цели.
-6. Observer смотрит дыры.
+## Фреймворки
 
-## Правила recommended (прототип)
+Critical roles · slates · горизонты ready_now/6m/12m/18m · 9-box · pipeline проходов · evidence-based readiness.
 
-- не junior, не incumbent;
-- potential medium/high;
-- пересечение track / skills;
-- performance high — бонус;
-- client feedback ≥ 4.3 — бонус;
-- lead/architect/principal — бонус на партнёрские роли;
-- уже planned на другую критическую роль — штраф.
+## Recommended
 
-Топ-5 = recommended.
+Не junior, не incumbent; potential medium/high; track/skills; бонус за performance, client ≥ 4.3, lead+; штраф за другой primary. Топ-5 + why.
 
-## Что не в v1
+## Демо-данные
 
-Оргчарт на 150, чат, автопромоушен, Workday.
+Полный пул: `python3 scripts/generate_seed.py` → `data/unit.json`.
 
-## Данные UI
+Сюжет демо не должен зависеть от генератора: жёсткий каст в [data/demo-cast.json](../data/demo-cast.json).
 
-Тайтл, трек, навыки, проекты, фидбек клиента, толки, performance × potential (черновик 9-box).
+## Не в v1
+
+Оргчарт, чат, автопромо, Workday, кабинет кандидата.

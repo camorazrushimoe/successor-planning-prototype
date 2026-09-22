@@ -1,53 +1,25 @@
 # Successor Planning Prototype
 
-Прототип succession planning для юнита аутсорс-компании (~150–200 инженеров).
+Прототип succession planning для юнита аутсорс-компании.
 
-https://github.com/camorazrushimoe/successor-planning-prototype
+## Кликабельное демо
+
+Файл: [prototype/index.html](prototype/index.html) — открыть локально в браузере.
+
+Превью: https://htmlpreview.github.io/?https://github.com/camorazrushimoe/successor-planning-prototype/blob/main/prototype/index.html
+
+В шапке переключатель **Observer / Unit Head / HRBP**. Сценарий — [docs/DEMO.md](docs/DEMO.md).
+
+Данные вшиты в HTML (каст из demo-cast). Сбор 150 профилей — следующий шаг, ценность продукта в данных.
 
 ## Роли
 
-В v1 три учётки + переключатель в шапке для демо.
-
-| Роль | Кто | В сервисе |
-|---|---|---|
-| **Unit Head** | Руководитель юнита ~200 | Роли, planned, цели, горизонт |
-| **HRBP** | HR юнита | 9-box, не ставит primary |
-| **Observer** | Руководитель Unit Head | Только дыры и coverage |
-
-Кандидат slate не видит. Тула не назначает на роль.
-
-## Демо
-
-Сценарий 8 мин, актёры, why-строка, emergency vs successor: **[docs/DEMO.md](docs/DEMO.md)**.
-
-Каст не из генератора: [data/demo-cast.json](data/demo-cast.json).
-
-## Флоу
-
-```mermaid
-flowchart TD
-  start([Unit Head: нужна преемственность]) --> create[Создаёт роль]
-  create --> inc[Incumbent]
-  inc --> planned[Planned]
-  planned --> rec[Recommended + why]
-  rec --> board[Pipeline]
-  board --> hr[HRBP: 9-box]
-  hr --> slate[Slate + цели]
-  slate --> obs[Observer: дыры]
-  slate --> q[Цели за квартал]
-  q --> matrix[Таймлайн]
-  q -->|ready| decision[Назначение вне тулы]
-```
+| Роль | В демо |
+|---|---|
+| Unit Head | Новая роль, planned, цели, горизонт |
+| HRBP | Клик по человеку в 9-box → калибровка + коммент |
+| Observer | Только счётчики и карточки |
 
 ## Документы
 
-- [docs/SPEC.md](docs/SPEC.md)
-- [docs/UI.md](docs/UI.md)
-- [docs/DEMO.md](docs/DEMO.md)
-- [docs/DATA.md](docs/DATA.md)
-
-## Данные
-
-```bash
-python3 scripts/generate_seed.py
-```
+[SPEC](docs/SPEC.md) · [UI](docs/UI.md) · [DEMO](docs/DEMO.md) · [DATA](docs/DATA.md)

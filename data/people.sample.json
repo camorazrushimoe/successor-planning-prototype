@@ -1,0 +1,27 @@
+[
+  {
+    "id": "p001",
+    "name": "Svetlana Khan",
+    "email": "svetlana.khan@outsource.example",
+    "location": "Yerevan",
+    "track": "delivery",
+    "level": "middle",
+    "title": "Business Analyst",
+    "years_experience": 2,
+    "years_in_company": 2,
+    "manager_id": "p034",
+    "utilization_pct": 100,
+    "bench_risk": false,
+    "english": "C1",
+    "skills": ["Risk", "Stakeholder mgmt", "P&L awareness"],
+    "projects": [
+      {"client": "CityGrid", "domain": "logistics", "role_on_project": "module owner", "duration_months": 13, "status": "active", "impact": "Stabilized release train"},
+      {"client": "AeroLogix", "domain": "media", "role_on_project": "Business Analyst", "duration_months": 6, "status": "completed", "impact": "Owned integration with client core"}
+    ],
+    "client_feedback": [{"source": "account", "date": "2026-06-25", "score": 4.8, "summary": "Good under pressure"}],
+    "manager_talks": [{"date": "2026-09-04", "author_role": "line manager", "summary": "Asked for architect path"}],
+    "performance": "high",
+    "potential": "high",
+    "notes": "Needs visibility with partners"
+  }
+]

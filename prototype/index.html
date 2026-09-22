@@ -1,102 +1,22 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Successor Planning — demo</title>
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Successor 0.5</title>
 <style>
-:root{--bg:#0f1216;--card:#171c22;--line:#2a323c;--txt:#e8edf3;--dim:#8b97a6;--red:#e05a5a;--green:#3dba7a;--amber:#d4a017;--chip:#232b34}
+:root{--bg:#10141a;--card:#181e26;--line:#2c3540;--txt:#e8eef4;--dim:#8b97a6;--acc:#3dba7a;--chip:#232b34}
+body.head{--acc:#3dba7a;--bg:#0e1612}body.hr{--acc:#9b7aed;--bg:#141018}body.observer{--acc:#8b97a6;--bg:#121417}body.candidate{--acc:#e0b44b;--bg:#18140c}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 ui-sans-serif,system-ui}
-header{display:flex;align-items:center;gap:16px;padding:12px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;flex-wrap:wrap}
-h1{font-size:15px;margin:0;font-weight:600}
-.nav button,.role button,.ghost{background:var(--chip);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:8px;cursor:pointer}
-.nav .on,.role .on{background:#243044;border-color:#3d5a80}
-.meta{color:var(--dim);font-size:12px;margin-left:auto}
-.counts span{margin-right:10px}.counts .bad{color:var(--red)}
-main{padding:16px 20px 40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
-.card.risk{border-color:#5a2a2a}
-.card h3{margin:0 0 6px;font-size:15px}
-.row{display:flex;justify-content:space-between;gap:8px;color:var(--dim);font-size:12px;margin-bottom:8px}
-.person{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 0;border-top:1px solid var(--line)}
-.person b{cursor:pointer}
-.chip{font-size:11px;padding:2px 7px;border-radius:999px;background:var(--chip);color:var(--dim)}
-.chip.ready{color:var(--green)}.chip.m6{color:#6ec8a0}.chip.m12{color:var(--amber)}.chip.risk{color:var(--red)}
-.why{font-size:12px;color:var(--dim)}
-.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.nine{display:grid;grid-template-columns:72px repeat(3,1fr);grid-template-rows:auto repeat(3,120px);gap:6px;max-width:860px}
-.cell{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px;overflow:auto}
-.cell.head{background:transparent;border:0;color:var(--dim);font-size:12px}
-.av{display:inline-block;margin:3px;padding:3px 7px;border-radius:6px;background:var(--chip);cursor:pointer;font-size:12px}
-.timeline{width:100%;border-collapse:collapse}
-.timeline th,.timeline td{border:1px solid var(--line);padding:8px;text-align:left}
-.timeline th{color:var(--dim);font-weight:500}
-.drawer{position:fixed;top:0;right:0;width:min(420px,100%);height:100%;background:#14191f;border-left:1px solid var(--line);padding:16px;overflow:auto;z-index:8}
-.mask{position:fixed;inset:0;background:#0008;z-index:7}
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0008;z-index:9}
-.modal .box{background:var(--card);padding:18px;border-radius:12px;width:min(440px,94%);border:1px solid var(--line)}
-label{display:block;font-size:12px;color:var(--dim);margin:8px 0 4px}
-input,select,textarea{width:100%;background:#0f141a;border:1px solid var(--line);color:var(--txt);padding:8px;border-radius:8px}
-.warn{background:#3a1f1f;color:#f0b0b0;padding:8px;border-radius:8px;font-size:12px;margin:8px 0}
-.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#243044;padding:8px 14px;border-radius:8px;z-index:10}
-</style>
-</head>
-<body>
-<header>
-  <h1>Successor · Unit Delivery</h1>
-  <nav class="nav">
-    <button data-page="pipeline" class="on">Pipeline</button>
-    <button data-page="matrix">Матрица</button>
-  </nav>
-  <div class="role">
-    <button data-role="observer">Observer</button>
-    <button data-role="head" class="on">Unit Head</button>
-    <button data-role="hr">HRBP</button>
-  </div>
-  <div class="meta">Last review 2026-09-01 · Next 2026-12-01<div class="counts" id="counts"></div></div>
-</header>
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+button{background:var(--chip);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:8px;cursor:pointer}
+.on,button.acc{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 25%,#1a1f26)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.risk{border-color:#5a2a2a}.chip{font-size:11px;padding:2px 7px;border-radius:99px;background:var(--chip)}
+.why{color:var(--dim);font-size:12px}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;z-index:9}
+.box{background:var(--card);padding:16px;border-radius:12px;width:min(440px,94%)}
+input,select,textarea{width:100%;background:#0f141a;border:1px solid var(--line);color:var(--txt);padding:8px;border-radius:8px;margin:4px 0}
+.how{margin:12px 16px;padding:10px;border:1px solid var(--line);border-radius:10px;max-width:820px}
+.nine{display:grid;grid-template-columns:70px repeat(3,1fr);gap:6px;padding:0 16px;max-width:860px}
+.cell{background:var(--card);border:1px solid var(--line);border-radius:8px;min-height:80px;padding:6px}
+</style></head><body class="head">
+<header><b>Successor 0.5</b><span id="nav"></span><span id="sw"></span><span id="cnt" class="why" style="margin-left:auto"></span></header>
 <main id="app"></main>
-<script>
-const PEOPLE = {
-  "demo-inc":{id:"demo-inc",name:"Pavel Orlov",title:"Delivery Partner",level:"partner",perf:"high",pot:"medium",box:"core",fb:4.6,talk:"Уходит через ~9 мес. Клиент знает.",projects:"NordBank — partner 3y"},
-  "demo-star":{id:"demo-star",name:"Maria Iyer",title:"Delivery Lead",level:"lead",perf:"high",pot:"high",box:"star",fb:4.8,why:"client 4.8 · lead · домен NordBank",talk:"QBR вела сама. Клиент просит её на аккаунт.",projects:"NordBank — delivery lead",goals:[{t:"QBR без партнёра",s:"open"},{t:"P&L review с Head",s:"open"},{t:"1:1 со стримом 8 чел",s:"done"}]},
-  "demo-expert":{id:"demo-expert",name:"Dmitry Volkov",title:"Principal Engineer",level:"principal",perf:"high",pot:"low",box:"expert",fb:4.7,why:"сильный IC, нет аккаунта",talk:"Отличный техлид. Клиента не держит.",projects:"Platform core"},
-  "demo-diamond":{id:"demo-diamond",name:"Ananya Reddy",title:"Tech Lead",level:"lead",perf:"medium",pot:"high",box:"diamond",fb:4.4,why:"high potential · нужен P&L",talk:"Тянет людей, мало клиента.",projects:"Payments EU"},
-  "demo-split":{id:"demo-split",name:"Kirill Novikov",title:"Delivery Lead",level:"lead",perf:"high",pot:"high",box:"star",fb:4.6,why:"уже primary Healthcare",talk:"Нельзя жечь на двух ролях.",projects:"HealthCo",primaryOn:"Delivery Partner — Healthcare"},
-  "demo-hinc":{id:"demo-hinc",name:"Elena Sokolova",title:"Delivery Partner",level:"partner",perf:"high",pot:"medium",box:"expert",fb:4.5,talk:"Стабильный аккаунт.",projects:"HealthCo"}
-};
-let state={role:"head",page:"pipeline",matrix:"nine",person:null,modal:false,toast:null,roles:[
-  {id:"role-nordics",name:"Delivery Partner — Nordics banking",why:"P&L + клиент NordBank",incumbent:"demo-inc",status:"open",planned:[],recommended:["demo-star","demo-diamond","demo-expert","demo-split"],emergency:null,horizon:{}},
-  {id:"role-health",name:"Delivery Partner — Healthcare",why:"стратегический аккаунт",incumbent:"demo-hinc",status:"open",planned:[{id:"demo-split",kind:"primary",hz:"6m"}],recommended:[],emergency:null,horizon:{"demo-split":"6m"}}
-]};
-const can={observer:{create:0,edit:0,box:0},head:{create:1,edit:1,box:0},hr:{create:0,edit:0,box:1}};
-function boxOf(p){return p.box||({high:{high:"star",medium:"ic",low:"expert"},medium:{high:"diamond",medium:"core",low:"steady"},low:{high:"puzzle",medium:"weak",low:"out"}}[p.pot][p.perf])}
-function readyNow(r){return (r.planned||[]).some(x=>(r.horizon[x.id]||x.hz)==="ready_now")}
-function counts(){return{noReady:state.roles.filter(r=>!readyNow(r)).length,holes:state.roles.filter(r=>!r.planned.length).length}}
-function toast(t){state.toast=t;render();setTimeout(()=>{state.toast=null;render()},2200)}
-function addPlanned(roleId,pid){if(!can[state.role].edit)return;const p=PEOPLE[pid];const r=state.roles.find(x=>x.id===roleId);if(p.primaryOn&&p.primaryOn!==r.name){toast("bench горит — "+p.name+" уже primary на "+p.primaryOn);return;}if(r.planned.some(x=>x.id===pid))return;r.planned.push({id:pid,kind:"backup",hz:"12m"});r.horizon[pid]="12m";r.recommended=r.recommended.filter(id=>id!==pid);toast(p.name+" в planned");render();}
-function setEmergency(roleId,pid){if(!can[state.role].edit)return;state.roles.find(x=>x.id===roleId).emergency=pid;toast("emergency cover");render();}
-function setPrimary(roleId,pid){if(!can[state.role].edit)return;const r=state.roles.find(x=>x.id===roleId);r.planned.forEach(x=>x.kind=x.id===pid?"primary":"backup");render();}
-function setHz(pid,hz,roleId){if(!can[state.role].edit)return;const r=state.roles.find(x=>x.id===roleId);r.horizon[pid]=hz;const pl=r.planned.find(x=>x.id===pid);if(pl)pl.hz=hz;toast("горизонт "+hz);render();}
-function markGoal(pid,i,s){if(!can[state.role].edit)return;PEOPLE[pid].goals[i].s=s;render();}
-function moveBox(pid,box){if(!can[state.role].box)return;const note=prompt("Почему клетка "+box+"?");if(!note)return;PEOPLE[pid].box=box;PEOPLE[pid].talk=(PEOPLE[pid].talk||"")+" | HR: "+note;toast("калибровка: "+PEOPLE[pid].name+" → "+box);render();}
-function headerCounts(){const c=counts();document.getElementById("counts").innerHTML=`<span class="bad">нет ready-now: ${c.noReady}</span><span class="bad">без planned: ${c.holes}</span><span>ролей: ${state.roles.length}</span>`;}
-function personLine(pid,role,extra=""){const p=PEOPLE[pid];if(!p)return"";const hz=role.horizon[pid]||"—";return `<div class="person"><div><b onclick="openPerson('${pid}','${role.id}')">${p.name}</b> <span class="chip">${p.title}</span> <span class="chip ${hz==="ready_now"?"ready":hz==="6m"?"m6":"m12"}">${hz}</span> <span class="chip">${p.box||""}</span> ${extra}</div><div class="why">${p.why||""}</div></div>`;}
-function renderPipeline(){const edit=can[state.role].edit;return `<div class="row"><div>Критические роли</div>${can[state.role].create?`<button onclick="state.modal=true;render()">Новая роль</button>`:""}</div><div class="grid">${state.roles.map(r=>{const hole=!r.planned.length;return `<article class="card ${!readyNow(r)?"risk":""}"><h3>${r.name}</h3><div class="row"><span>Incumbent: ${PEOPLE[r.incumbent]?.name||"—"}</span><span class="chip ${readyNow(r)?"ready":"risk"}">${readyNow(r)?"есть ready-now":"нет ready-now"}</span></div><div class="why">${r.why||""}</div><div style="margin-top:8px;color:var(--dim);font-size:11px">PLANNED ${hole?"· дыра":""}</div>${r.planned.map(x=>personLine(x.id,r,`<span class="chip">${x.kind}</span>`)+(edit?`<div class="actions"><button class="ghost" onclick="setPrimary('${r.id}','${x.id}')">primary</button><button class="ghost" onclick="setHz('${x.id}','ready_now','${r.id}')">ready now</button><button class="ghost" onclick="setHz('${x.id}','6m','${r.id}')">6m</button></div>`:"")).join("")||"<div class='warn'>нет planned successor</div>"}<div style="margin-top:8px;color:var(--dim);font-size:11px">RECOMMENDED</div>${r.recommended.map(id=>personLine(id,r)+(edit?`<div class="actions"><button class="ghost" onclick="addPlanned('${r.id}','${id}')">в planned</button><button class="ghost" onclick="setEmergency('${r.id}','${id}')">emergency</button></div>`:"")).join("")}<div class="row" style="margin-top:8px"><span>Emergency: ${r.emergency?PEOPLE[r.emergency].name:"—"}</span></div></article>`}).join("")}</div>`;}
-const BOXES=[["puzzle","diamond","star"],["weak","core","ic"],["out","steady","expert"]];
-const BOXL={puzzle:"загадка",diamond:"алмаз",star:"звезда",weak:"слабый",core:"ядро",ic:"сильный IC",out:"на выход",steady:"стабильный",expert:"эксперт"};
-function renderNine(){const ids=new Set();state.roles.forEach(r=>{[r.incumbent,...r.planned.map(p=>p.id),...r.recommended,r.emergency].forEach(id=>id&&ids.add(id))});const by={};[...ids].forEach(id=>{const b=boxOf(PEOPLE[id]);(by[b]=by[b]||[]).push(id)});const drag=can[state.role].box;let html=`<div class="row"><div>9-box · ${drag?"HR калибрует кликом":"только просмотр"}</div><div><button class="ghost" onclick="state.matrix='nine';render()">9-box</button> <button class="ghost" onclick="state.matrix='time';render()">Таймлайн</button></div></div><p class="why">Звезда / алмаз — slate. Эксперт — emergency, не partner.</p><div class="nine"><div></div><div class="cell head">low performance</div><div class="cell head">medium</div><div class="cell head">high performance</div>`;[["high potential",BOXES[0]],["medium",BOXES[1]],["low potential",BOXES[2]]].forEach(([lab,row])=>{html+=`<div class="cell head">${lab}</div>`;row.forEach(b=>{html+=`<div class="cell"><div class="why">${BOXL[b]}</div>${(by[b]||[]).map(id=>`<span class="av" onclick="${drag?`pickBox('${id}')`:`openPerson('${id}')`}">${PEOPLE[id].name}</span>`).join("")}</div>`})});return html+"</div>";}
-function pickBox(pid){const next=prompt("Клетка: star / diamond / expert / ic / core / puzzle / steady / weak / out","expert");if(!next)return;moveBox(pid,next.trim());}
-function renderTime(){const cols=["ready_now","6m","12m","18m"];let html=`<div class="row"><div>Таймлайн</div><div><button class="ghost" onclick="state.matrix='nine';render()">9-box</button> <button class="ghost" onclick="state.matrix='time';render()">Таймлайн</button></div></div><table class="timeline"><tr><th>Роль</th>${cols.map(c=>`<th>${c}</th>`).join("")}</tr>`;state.roles.forEach(r=>{html+=`<tr><td>${r.name}${readyNow(r)?"":" <span class='chip risk'>не покрыто now</span>"}</td>`;cols.forEach(c=>{html+=`<td>${r.planned.filter(p=>(r.horizon[p.id]||p.hz)===c).map(p=>PEOPLE[p.id].name).join(", ")||"—"}</td>`});html+="</tr>"});return html+"</table>";}
-function openPerson(pid,rid){state.person={pid,rid};render()}
-function renderDrawer(){if(!state.person)return"";const p=PEOPLE[state.person.pid];const r=state.roles.find(x=>x.id===state.person.rid)||state.roles[0];const edit=can[state.role].edit;const goals=(p.goals||[]).map((g,i)=>`<div class="person"><span>${g.t} · ${g.s}</span>${edit?`<span><button class="ghost" onclick="markGoal('${p.id}',${i},'done')">достиг</button><button class="ghost" onclick="markGoal('${p.id}',${i},'open')">не готов</button></span>`:""}</div>`).join("")||"<div class='why'>целей нет</div>";return `<div class="mask" onclick="state.person=null;render()"></div><aside class="drawer"><button class="ghost" onclick="state.person=null;render()">закрыть</button><h2>${p.name}</h2><div class="why">${p.title} · ${p.box} · fb ${p.fb}</div><p>${p.projects||""}</p><p class="why">${p.talk||""}</p><p class="why">${p.why||""}</p>${p.primaryOn?`<div class="warn">уже primary: ${p.primaryOn}</div>`:""}<h4>Цели</h4>${goals}${edit&&r?`<div class="actions"><button class="ghost" onclick="setHz('${p.id}','ready_now','${r.id}')">ready now</button><button class="ghost" onclick="setHz('${p.id}','6m','${r.id}')">6m</button></div>`:""}${state.role==="observer"?"<p class='why'>Observer: только чтение</p>":""}</aside>`;}
-function renderModal(){if(!state.modal)return"";return `<div class="modal"><div class="box"><h3>Новая роль</h3><label>Название</label><input id="rn" placeholder="Delivery Partner — DACH"/><label>Зачем критична</label><textarea id="rw" rows="2"></textarea><label>Incumbent</label><select id="ri">${Object.values(PEOPLE).map(p=>`<option value="${p.id}">${p.name} · ${p.title}</option>`).join("")}</select><div class="actions"><button class="ghost" onclick="state.modal=false;render()">отмена</button><button onclick="saveRole()">создать</button></div></div></div>`;}
-function saveRole(){const name=document.getElementById("rn").value.trim()||"Новая критическая роль";const why=document.getElementById("rw").value.trim();const inc=document.getElementById("ri").value;state.roles.unshift({id:"role-"+Date.now(),name,why,incumbent:inc,status:"open",planned:[],recommended:["demo-star","demo-diamond"],emergency:null,horizon:{}});state.modal=false;toast("роль создана — planned пустой");render();}
-function render(){headerCounts();document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.page===state.page));document.querySelectorAll(".role button").forEach(b=>b.classList.toggle("on",b.dataset.role===state.role));const html=state.page==="pipeline"?renderPipeline():(state.matrix==="time"?renderTime():renderNine());document.getElementById("app").innerHTML=html+(state.toast?`<div class="toast">${state.toast}</div>`:"")+renderDrawer()+renderModal();}
-document.querySelector(".nav").onclick=e=>{const b=e.target.closest("button");if(!b)return;state.page=b.dataset.page;render()};
-document.querySelector(".role").onclick=e=>{const b=e.target.closest("button");if(!b)return;state.role=b.dataset.role;state.modal=false;render()};
-render();
-</script>
-</body>
-</html>
+<script src="app.js"></script>
+</body></html>

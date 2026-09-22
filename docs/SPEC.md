@@ -2,46 +2,32 @@
 
 ## Контекст
 
-Большая аутсорс / project-delivery компания. Юнит ~150 инженеров (в жизни до 200).
+Большая аутсорс / project-delivery компания. Юнит ~150 инженеров.
 
-Succession только на критические роли, которые создаёт Unit Head.
+Succession только на критические роли Unit Head.
 
-Экраны: [UI.md](UI.md). Демо 8 мин и актёры: [DEMO.md](DEMO.md).
+Экраны и действия слейта: [UI.md](UI.md). Демо: [DEMO.md](DEMO.md).
 
 ## Пользователи
 
 | Роль | Что делает |
 |---|---|
-| Unit Head | Роли, planned, цели, горизонт |
-| HRBP | 9-box + коммент. Не ставит primary |
-| Observer | Только покрытие и дыры |
-| Кандидат | v1 не логинится, slate не видит |
+| Unit Head | CRUD роли, slate +/−, горизонт, цели, коммент профиля |
+| HRBP | 9-box + коммент клетки и профиля. Не меняет slate |
+| Observer | Только чтение |
+| Кандидат | v1 не логинится |
 
-В прототипе — переключатель трёх ролей в шапке, не настоящий логин.
+## Правила
 
-## Правила, которые легко упустить
-
-1. **Тула не назначает.** Статус роли: `open | ready_to_fill | filled_outside`.
-2. **Emergency ≠ successor.** Cover — завтра. Planned — рост в роль.
-3. **Slate конфиденциален.** Кандидат не видит, что он в списке.
-4. **Recommended с why-строкой.** Не один score.
-5. **Один primary на двух ролях** — флаг «bench горит».
-6. **Каденция в шапке:** last review / next review.
-7. **9-box ≠ готовность.** Клетка = в кого вкладываться. Горизонт = цели.
-
-## Фреймворки
-
-Critical roles · slates · горизонты ready_now/6m/12m/18m · 9-box · pipeline проходов · evidence-based readiness.
-
-## Recommended
-
-Не junior, не incumbent; potential medium/high; track/skills; бонус за performance, client ≥ 4.3, lead+; штраф за другой primary. Топ-5 + why.
-
-## Демо-данные
-
-Полный пул: `python3 scripts/generate_seed.py` → `data/unit.json`.
-
-Сюжет демо не должен зависеть от генератора: жёсткий каст в [data/demo-cast.json](../data/demo-cast.json).
+1. Тула не назначает.
+2. **Emergency ≠ successor.** Cover на завтра, снимается крестиком. В таймлайн не идёт.
+3. Planned / recommended / emergency **обратимы**. Минус всегда работает у Head.
+4. Recommended можно дополнить из пула 150, не только из скоринга.
+5. Горизонт `ready_now | 6m | 12m | 18m | none` на каждого кандидата этой роли. Ready now — тоггл. Попадает на экран таймлайна.
+6. Роль редактируется после создания.
+7. Цели на карточке: add / delete / статус.
+8. Коммент к профилю пишут Head и HRBP, виден всем трём ролям.
+9. Slate конфиденциален. 9-box ≠ горизонт. Bench горит на двух primary.
 
 ## Не в v1
 

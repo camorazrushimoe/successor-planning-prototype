@@ -1,0 +1,71 @@
+{
+  "story_role": {
+    "id": "role-nordics",
+    "name": "Delivery Partner — Nordics banking",
+    "incumbent_id": "demo-inc",
+    "status": "open",
+    "has_ready_now": false,
+    "next_review": "2026-12-01",
+    "last_review": "2026-09-01"
+  },
+  "people": [
+    {
+      "id": "demo-inc",
+      "name": "Pavel Orlov",
+      "title": "Delivery Partner",
+      "level": "partner",
+      "track": "delivery",
+      "performance": "high",
+      "potential": "medium",
+      "notes": "Leaves in ~9 months. Incumbent Nordics."
+    },
+    {
+      "id": "demo-star",
+      "name": "Maria Iyer",
+      "title": "Delivery Lead",
+      "level": "lead",
+      "track": "delivery",
+      "performance": "high",
+      "potential": "high",
+      "box": "star",
+      "client_feedback_score": 4.8,
+      "why_recommended": "client 4.8 · lead · тот же домен NordBank",
+      "notes": "Planned successor Nordics."
+    },
+    {
+      "id": "demo-expert",
+      "name": "Dmitry Volkov",
+      "title": "Principal Engineer",
+      "level": "principal",
+      "track": "backend",
+      "performance": "high",
+      "potential": "low",
+      "box": "expert",
+      "notes": "Head favorite. Emergency cover only. Not partner material."
+    },
+    {
+      "id": "demo-diamond",
+      "name": "Ananya Reddy",
+      "title": "Tech Lead",
+      "level": "lead",
+      "track": "delivery",
+      "performance": "medium",
+      "potential": "high",
+      "box": "diamond",
+      "why_recommended": "high potential · needs P&L exposure",
+      "notes": "Recommended 12m."
+    },
+    {
+      "id": "demo-split",
+      "name": "Kirill Novikov",
+      "title": "Delivery Lead",
+      "level": "lead",
+      "track": "delivery",
+      "performance": "high",
+      "potential": "high",
+      "box": "star",
+      "already_primary_on": "Delivery Partner — Healthcare",
+      "notes": "Do not add as Nordics primary. Bench conflict."
+    }
+  ]
+}

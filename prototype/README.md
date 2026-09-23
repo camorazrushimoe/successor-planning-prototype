@@ -1,9 +1,12 @@
-# Deploy
+# prototype/
 
-Спека 0.7. Положи `people.json` рядом с `index.html`.
+1. Положи локальную выгрузку сюда: `people.json` (контракт — [/DATA_CONTRACT.md](../DATA_CONTRACT.md)).
+2. Из этой папки:
 
 ```
-cd prototype && python3 -m http.server 8080
+python3 -m http.server 8080
 ```
 
-Контракт: [/DATA_CONTRACT.md](../DATA_CONTRACT.md)
+3. http://127.0.0.1:8080/
+
+Не коммить боевую выгрузку. Не открывать `index.html` как file://.

@@ -1,22 +1,56 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Successor 0.5</title>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Successor</title>
 <style>
-:root{--bg:#10141a;--card:#181e26;--line:#2c3540;--txt:#e8eef4;--dim:#8b97a6;--acc:#3dba7a;--chip:#232b34}
-body.head{--acc:#3dba7a;--bg:#0e1612}body.hr{--acc:#9b7aed;--bg:#141018}body.observer{--acc:#8b97a6;--bg:#121417}body.candidate{--acc:#e0b44b;--bg:#18140c}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 ui-sans-serif,system-ui}
-header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
-button{background:var(--chip);border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:8px;cursor:pointer}
-.on,button.acc{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 25%,#1a1f26)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
-.risk{border-color:#5a2a2a}.chip{font-size:11px;padding:2px 7px;border-radius:99px;background:var(--chip)}
-.why{color:var(--dim);font-size:12px}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;z-index:9}
-.box{background:var(--card);padding:16px;border-radius:12px;width:min(440px,94%)}
-input,select,textarea{width:100%;background:#0f141a;border:1px solid var(--line);color:var(--txt);padding:8px;border-radius:8px;margin:4px 0}
-.how{margin:12px 16px;padding:10px;border:1px solid var(--line);border-radius:10px;max-width:820px}
-.nine{display:grid;grid-template-columns:70px repeat(3,1fr);gap:6px;padding:0 16px;max-width:860px}
-.cell{background:var(--card);border:1px solid var(--line);border-radius:8px;min-height:80px;padding:6px}
-</style></head><body class="head">
-<header><b>Successor 0.5</b><span id="nav"></span><span id="sw"></span><span id="cnt" class="why" style="margin-left:auto"></span></header>
+:root{
+  --canvas:#010102;--s1:#0f1011;--s2:#141516;--s3:#18191a;
+  --hair:#23252a;--hair2:#34343a;
+  --ink:#f7f8f8;--muted:#d0d6e0;--subtle:#8a8f98;
+  --acc:#5e6ad2;--acc-h:#828fff;--on:#fff;--ok:#27a644;
+  --r:8px;--rl:12px;
+}
+body.head{--acc:#5e6ad2}body.hr{--acc:#7a7fad}body.observer{--acc:#8a8f98}body.candidate{--acc:#d0d6e0}
+*{box-sizing:border-box}html,body{margin:0;background:var(--canvas);color:var(--ink);font:14px/1.5 -apple-system,SF Pro Display,system-ui,sans-serif;letter-spacing:-.02em}
+header{height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--hair);position:sticky;top:0;background:var(--canvas);z-index:5}
+.brand{font-weight:600;letter-spacing:-.4px}
+button{font:500 13px/1.2 -apple-system,system-ui;background:var(--s1);color:var(--ink);border:1px solid var(--hair);border-radius:var(--r);padding:8px 14px;cursor:pointer}
+button.on,button.pri{background:var(--acc);color:var(--on);border-color:transparent}
+button.pri:hover{background:var(--acc-h)}
+select,input,textarea{background:var(--s1);color:var(--ink);border:1px solid var(--hair);border-radius:var(--r);padding:8px 12px;font:inherit;width:100%}
+main{padding:16px 20px 64px}
+.meta{margin-left:auto;color:var(--subtle);font-size:12px}
+.counts{color:#c45c5c}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.card{background:var(--s1);border:1px solid var(--hair);border-radius:var(--rl);padding:20px}
+.card.risk{border-color:#3a2222}
+h3{margin:0 0 8px;font-size:16px;font-weight:500;letter-spacing:-.3px}
+.why{color:var(--subtle);font-size:12px}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{font-size:12px;padding:2px 8px;border-radius:9999px;background:var(--s2);color:var(--muted)}
+.chip.ok{color:var(--ok)}
+.line{padding:10px 0;border-top:1px solid var(--hair)}
+.how{max-width:720px;background:var(--s1);border:1px solid var(--hair);border-radius:var(--rl);padding:16px;margin-bottom:16px;color:var(--muted)}
+.nine{display:grid;grid-template-columns:72px repeat(3,1fr);gap:6px;max-width:860px}
+.cell{background:var(--s1);border:1px solid var(--hair);border-radius:var(--r);min-height:88px;padding:8px}
+.cell.h{min-height:0;background:transparent;border:0;color:var(--subtle);font-size:12px}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid var(--hair);padding:10px;text-align:left;font-size:13px}
+.modal{position:fixed;inset:0;background:#000a;display:flex;align-items:center;justify-content:center;z-index:9}
+.box{background:var(--s2);border:1px solid var(--hair);border-radius:var(--rl);padding:24px;width:min(440px,94%)}
+.boxes9{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.boxes9 label{margin:0;padding:8px;border:1px solid var(--hair);border-radius:var(--r);font-size:12px}
+</style>
+</head>
+<body class="head">
+<header>
+  <span class="brand">Successor</span>
+  <span id="nav"></span>
+  <span id="sw"></span>
+  <div class="meta">Review 01 Sep · next 01 Dec<div id="cnt" class="counts"></div></div>
+</header>
 <main id="app"></main>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>

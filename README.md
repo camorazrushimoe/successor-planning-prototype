@@ -1,25 +1,32 @@
 # Successor Planning Prototype
 
-Прототип succession planning для юнита аутсорс-компании.
+Прототип succession planning. Спека 0.7.
 
-## Кликабельное демо
+Выгрузка людей **не живёт в git**. Её кладёт агент локально.
 
-Файл: [prototype/index.html](prototype/index.html) — открыть локально в браузере.
+## Как развернуть локально (для агента)
 
-Превью: https://htmlpreview.github.io/?https://github.com/camorazrushimoe/successor-planning-prototype/blob/main/prototype/index.html
+Нужно: этот репозиторий + локальный JSON с людьми (контракт — [DATA_CONTRACT.md](DATA_CONTRACT.md)).
 
-В шапке переключатель **Observer / Unit Head / HRBP**. Сценарий — [docs/DEMO.md](docs/DEMO.md).
+```bash
+git clone https://github.com/camorazrushimoe/successor-planning-prototype.git
+cd successor-planning-prototype
 
-Данные вшиты в HTML (каст из demo-cast). Сбор 150 профилей — следующий шаг, ценность продукта в данных.
+# положи выгрузку ровно сюда, имя файла строго people.json
+cp /path/to/export.json prototype/people.json
 
-## Роли
+cd prototype
+python3 -m http.server 8080
+```
 
-| Роль | В демо |
-|---|---|
-| Unit Head | Новая роль, planned, цели, горизонт |
-| HRBP | Клик по человеку в 9-box → калибровка + коммент |
-| Observer | Только счётчики и карточки |
+Открыть http://127.0.0.1:8080/
+
+Без HTTP (`file://`) `fetch('people.json')` часто не работает — пул не подхватится.
+
+Не коммить боевую выгрузку. Файл в `prototype/people.json` в репо — только короткий сэмпл; его можно перезаписать локально.
+
+Проверка: в шапке счётчик `пул N` = число людей в JSON. «+ из пула» ищет по этому списку.
 
 ## Документы
 
-[SPEC](docs/SPEC.md) · [UI](docs/UI.md) · [DEMO](docs/DEMO.md) · [DATA](docs/DATA.md)
+[DATA_CONTRACT.md](DATA_CONTRACT.md) · [SPEC](docs/SPEC.md) · [UI](docs/UI.md) · [DESIGN](docs/DESIGN.md) · [DEMO](docs/DEMO.md)

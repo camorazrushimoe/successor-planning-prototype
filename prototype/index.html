@@ -14,22 +14,25 @@
 }
 body.head{--acc:#5e6ad2}body.hr{--acc:#7a7fad}body.observer{--acc:#8a8f98}body.candidate{--acc:#d0d6e0}
 *{box-sizing:border-box}html,body{margin:0;background:var(--canvas);color:var(--ink);font:14px/1.5 -apple-system,SF Pro Display,system-ui,sans-serif;letter-spacing:-.02em}
-header{height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--hair);position:sticky;top:0;background:var(--canvas);z-index:5;flex-wrap:wrap}
+header{min-height:56px;display:flex;align-items:center;gap:10px;padding:8px 16px;border-bottom:1px solid var(--hair);position:sticky;top:0;background:var(--canvas);z-index:5;flex-wrap:wrap}
 .brand{font-weight:600;letter-spacing:-.4px}
 button{font:500 13px/1.2 -apple-system,system-ui;background:var(--s1);color:var(--ink);border:1px solid var(--hair);border-radius:var(--r);padding:8px 14px;cursor:pointer}
 button.on,button.pri,button.acc{background:var(--acc);color:var(--on);border-color:transparent}
-button.pri:hover,button.acc:hover{background:var(--acc-h)}
-select,input,textarea{background:var(--s1);color:var(--ink);border:1px solid var(--hair);border-radius:var(--r);padding:8px 12px;font:inherit}
+select,input,textarea{background:var(--s1);color:var(--ink);border:1px solid var(--hair);border-radius:var(--r);padding:8px 12px;font:inherit;width:100%;margin:6px 0}
 main{padding:16px 20px 64px}
 .meta{margin-left:auto;color:var(--subtle);font-size:12px}
 .counts{color:#c45c5c}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
 .card{background:var(--s1);border:1px solid var(--hair);border-radius:var(--rl);padding:20px}
 .card.risk{border-color:#3a2222}
 h3{margin:0 0 8px;font-size:16px;font-weight:500}
 .why{color:var(--subtle);font-size:12px}
+.sec{color:var(--subtle);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin:16px 0 8px}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
 .chip{font-size:12px;padding:2px 8px;border-radius:9999px;background:var(--s2);color:var(--muted)}
 .chip.ok{color:var(--ok)}
+.slate-item{background:var(--s2);border:1px solid var(--hair);border-radius:var(--r);padding:12px;margin:8px 0}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .how{max-width:720px;background:var(--s1);border:1px solid var(--hair);border-radius:var(--rl);padding:16px;margin-bottom:16px;color:var(--muted)}
 .nine{display:grid;grid-template-columns:72px repeat(3,1fr);gap:6px;max-width:860px}
 .cell{background:var(--s1);border:1px solid var(--hair);border-radius:var(--r);min-height:88px;padding:8px}
@@ -43,7 +46,7 @@ table{width:100%;border-collapse:collapse}th,td{border:1px solid var(--hair);pad
   <span class="brand">Successor</span>
   <span id="nav"></span>
   <span id="sw"></span>
-  <div class="meta">Review 01 Sep · next 01 Dec<div id="cnt" class="counts"></div></div>
+  <div class="meta">people.json · Review 01 Sep<div id="cnt" class="counts"></div></div>
 </header>
 <main id="app"></main>
 <script src="app.js"></script>

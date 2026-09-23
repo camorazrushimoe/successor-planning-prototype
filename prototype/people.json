@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "unit": {"name": "Engineering Unit — Delivery Center East", "headcount": 12, "exported_at": "2026-09-23"},
+  "people": [
+    {"id":"demo-inc","name":"Pavel Orlov","title":"Delivery Partner","level":"partner","track":"delivery","performance":"medium","potential":"medium","english":"C1","notes":"Incumbent Nordics","skills":["Stakeholder mgmt","P&L awareness"],"client_feedback":[{"source":"account","date":"2026-05-01","score":4.4,"summary":"Stable account owner"}]},
+    {"id":"demo-star","name":"Maria Iyer","title":"Delivery Lead","level":"lead","track":"delivery","performance":"high","potential":"high","english":"C1","notes":"client 4.8","skills":["Stakeholder mgmt","Estimation"],"client_feedback":[{"source":"account","date":"2026-06-25","score":4.8,"summary":"Trusted by PO"}]},
+    {"id":"demo-expert","name":"Dmitry Volkov","title":"Principal Engineer","level":"principal","track":"architecture","performance":"high","potential":"low","english":"C1","notes":"IC","skills":["System design","Java"]},
+    {"id":"demo-diamond","name":"Ananya Reddy","title":"Tech Lead","level":"lead","track":"backend","performance":"medium","potential":"high","english":"C1","notes":"P&L","skills":["Kotlin","People leadership"]},
+    {"id":"demo-split","name":"Kirill Novikov","title":"Delivery Lead","level":"lead","track":"delivery","performance":"high","potential":"high","english":"B2","notes":"Healthcare primary","skills":["Delivery","Risk"]},
+    {"id":"demo-hinc","name":"Elena Sokolova","title":"Delivery Partner","level":"partner","track":"delivery","performance":"high","potential":"low","english":"C1","notes":"Healthcare incumbent","skills":["P&L awareness"]},
+    {"id":"p007","name":"Olga Petrova","title":"Senior Software Engineer","level":"senior","track":"backend","performance":"high","potential":"medium","english":"B2","skills":["Java","Spring"]},
+    {"id":"p008","name":"Arjun Patel","title":"Engineering Lead","level":"lead","track":"platform","performance":"medium","potential":"high","english":"C1","skills":["Kubernetes","SRE"]},
+    {"id":"p009","name":"Sofia Nowak","title":"QA Lead","level":"lead","track":"qa","performance":"medium","potential":"medium","english":"B2","skills":["Playwright","Test design"]},
+    {"id":"p010","name":"Ivan Smirnov","title":"Solution Architect","level":"architect","track":"architecture","performance":"high","potential":"medium","english":"C1","skills":["System design","Cloud"]},
+    {"id":"p011","name":"Priya Sharma","title":"Data Engineer","level":"middle","track":"data","performance":"medium","potential":"high","english":"C1","skills":["Spark","dbt"]},
+    {"id":"p012","name":"Roman Belov","title":"Staff Engineer","level":"principal","track":"backend","performance":"high","potential":"high","english":"C1","skills":["Go","gRPC"]}
+  ]
+}

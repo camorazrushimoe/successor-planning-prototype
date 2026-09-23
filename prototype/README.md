@@ -1,5 +1,3 @@
-# Deploy unit
+# Deploy
 
-Только эта папка нужна девопсу.
-
-`index.html` — spec **0.5**. Открыть в браузере.
+`index.html` + `app.js` — spec **0.6**, токены Linear (`docs/DESIGN.md`).
